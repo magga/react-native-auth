@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, TextInput, Alert } from 'react-native';
+import firebase from 'firebase';
 
 import { Card, CardItem, Button } from './common';
 
@@ -8,6 +9,21 @@ class LoginForm extends Component {
         email: '',
         password: ''
     };
+
+    _signUp() {
+        // Function Signup to Firebase
+
+        firebase.auth()
+        .createUserWithEmailAndPassword(this.state.email, this.state.password)
+            .then((user) => {
+                console.log('isi user', user);
+                Alert.alert('BERHASIL', `Email ${this.state.email} berhasil didaftarkan dengan id "${user.user.uid}"`);
+            })
+            .catch((error) => {
+                console.log('isi errornya : ', error);
+                Alert.alert('ERROR', `Errornya adalah : ${error.message}`);
+            });
+    }
 
     render() {
         return (
@@ -31,6 +47,7 @@ class LoginForm extends Component {
                                     this.setState({ email: text });
                                 }}
                                 keyboardType={'email-address'}
+                                value={this.state.email}
                             />
                         </View>
                     </CardItem>
@@ -51,17 +68,16 @@ class LoginForm extends Component {
                                     this.setState({ password: text });
                                 }}
                                 secureTextEntry
+                                value={this.state.password}
                             />
                         </View>
                     </CardItem>
 
                     <CardItem>
                         <Button
-                            onPress={() => {
-                                Alert.alert(`${this.state.email} - ${this.state.password}`);
-                            }}
+                            onPress={this._signUp.bind(this)}
                         >
-                            LOGIN
+                            DAFTAR
                         </Button>
                     </CardItem>
                 </Card>
