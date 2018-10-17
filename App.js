@@ -4,6 +4,7 @@ import firebase from 'firebase';
 
 import { Header } from './src/components/common';
 import LoginForm from './src/components/LoginForm';
+import LoginFormNativebase from './src/components/LoginFormNativebase';
 
 class App extends Component {
 	constructor(props) {
@@ -25,7 +26,7 @@ class App extends Component {
 		return (
 			<View>
 				<Header headerText={'Auth'} />
-				<LoginForm />
+				<LoginFormNativebase />
 			</View>
 		);
 	}

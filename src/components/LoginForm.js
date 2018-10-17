@@ -21,7 +21,20 @@ class LoginForm extends Component {
             })
             .catch((error) => {
                 console.log('isi errornya : ', error);
-                Alert.alert('ERROR', `Errornya adalah : ${error.message}`);
+                Alert.alert('SIGNUP ERROR', `Errornya adalah : ${error.message}`);
+            });
+    }
+
+    _login() {
+        firebase.auth()
+        .signInWithEmailAndPassword(this.state.email, this.state.password)
+            .then((user) => {
+                console.log('isi user', user);
+                Alert.alert('BERHASIL', `Berhasil login dengan email ${this.state.email}. Id : ${user.user.uid}`);
+            })
+            .catch((error) => {
+                console.log('isi errornya : ', error);
+                Alert.alert('LOGIN ERROR', `Errornya adalah : ${error.message}`);
             });
     }
 
@@ -78,6 +91,14 @@ class LoginForm extends Component {
                             onPress={this._signUp.bind(this)}
                         >
                             DAFTAR
+                        </Button>
+                    </CardItem>
+
+                    <CardItem>
+                        <Button
+                            onPress={this._login.bind(this)}
+                        >
+                            LOGIN
                         </Button>
                     </CardItem>
                 </Card>
