@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Image } from 'react-native';
 import firebase from 'firebase';
 
 import { Header } from './src/components/common';
@@ -24,8 +24,14 @@ class App extends Component {
 
 	render() {
 		return (
-			<View>
-				<Header headerText={'Auth'} />
+			<View style={{ flex: 1 }}>
+				<Image 
+					resizeMethod={'resize'}
+					source={{ uri: 'https://i.imgur.com/tjYiDcx.jpg' }}
+					style={{ height: '100%', width: '100%', position: 'absolute', left: 0, right: 0 }}
+				/>
+
+				<Header headerText={'Auth'} bgColor={'#00AAA0'} />
 				<LoginFormNativebase />
 			</View>
 		);
