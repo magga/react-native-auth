@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import { View, Image } from 'react-native';
 import firebase from 'firebase';
+import { createStackNavigator } from 'react-navigation';
 
-import { Header } from './src/components/common';
-import LoginForm from './src/components/LoginForm';
-import LoginFormNativebase from './src/components/LoginFormNativebase';
+import LoginScreen from './src/screens/LoginScreen';
+import HomeScreen from './src/screens/HomeScreen';
+
+const AppNavigator = createStackNavigator({
+	login: LoginScreen,
+	home: HomeScreen
+});
 
 class App extends Component {
 	constructor(props) {
@@ -25,14 +30,7 @@ class App extends Component {
 	render() {
 		return (
 			<View style={{ flex: 1 }}>
-				<Image 
-					resizeMethod={'resize'}
-					source={{ uri: 'https://i.imgur.com/tjYiDcx.jpg' }}
-					style={{ height: '100%', width: '100%', position: 'absolute', left: 0, right: 0 }}
-				/>
-
-				<Header headerText={'Auth'} bgColor={'#00AAA0'} />
-				<LoginFormNativebase />
+				<AppNavigator />
 			</View>
 		);
 	}
