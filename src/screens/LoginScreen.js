@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
 import { View, Image } from 'react-native';
+import IconFA from 'react-native-vector-icons/FontAwesome';
 
-import { Header } from './../components/common';
 import LoginFormNativebase from './../components/LoginFormNativebase';
 
 class LoginScreen extends Component {
+	static navigationOptions = {
+		header: null
+	};
+
+	_onButtonLoginPress() {
+		this.props.navigation.navigate('home');
+	}
+
     render() {
 		return (
 			<View style={{ flex: 1 }}>
@@ -14,8 +22,9 @@ class LoginScreen extends Component {
 					style={{ height: '100%', width: '100%', position: 'absolute', left: 0, right: 0 }}
 				/>
 
-				<Header headerText={'Auth'} bgColor={'#00AAA0'} />
-				<LoginFormNativebase />
+				<LoginFormNativebase 
+					onLoginPress={this._onButtonLoginPress.bind(this)}
+				/>
 			</View>
 		);
 	}

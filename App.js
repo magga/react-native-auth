@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { View, Image } from 'react-native';
+import { View } from 'react-native';
 import firebase from 'firebase';
-import { createStackNavigator } from 'react-navigation';
+import { createSwitchNavigator } from 'react-navigation';
 
 import LoginScreen from './src/screens/LoginScreen';
 import HomeScreen from './src/screens/HomeScreen';
 
-const AppNavigator = createStackNavigator({
+const AppNavigator = createSwitchNavigator({
 	login: LoginScreen,
 	home: HomeScreen
 });

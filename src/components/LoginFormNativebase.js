@@ -31,6 +31,7 @@ class LoginFormNativebase extends Component {
                             iconLeft 
                             bordered 
                             style={{ flex: 1, justifyContent: 'center', borderColor: 'yellow' }}
+                            onPress={this.props.onLoginPress}
                         >
                             <IconM name={'login-variant'} size={20} color={'yellow'} />
                             <Text style={{ color: 'white', marginLeft: 10 }}>LOGIN</Text>
