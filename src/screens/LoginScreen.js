@@ -1,14 +1,9 @@
 import React, { Component } from 'react';
 import { View, Image } from 'react-native';
-import IconFA from 'react-native-vector-icons/FontAwesome';
 
 import LoginFormNativebase from './../components/LoginFormNativebase';
 
 class LoginScreen extends Component {
-	static navigationOptions = {
-		header: null
-	};
-
 	_onButtonLoginPress() {
 		this.props.navigation.navigate('home');
 	}
