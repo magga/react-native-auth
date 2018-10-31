@@ -22,7 +22,7 @@ class HomeScreen extends Component {
                     <Item>
                         <Icon name="ios-search" />
                         <Input 
-                            placeholder="Masukkan Kota" 
+                            placeholder={`Masukkan Kota, misal : ${this.props.navigation.state.params.kota}`}
                             autoCorrect={false}
                             autoCapitalize='none'
                             style={{ fontSize: 12 }}
@@ -32,6 +32,14 @@ class HomeScreen extends Component {
                         <Text>cari</Text>
                     </Button>
                 </Header>
+
+                <Button
+                    onPress={() => {
+                        this.props.navigation.navigate('profile');
+                    }}
+                >
+                    <Text>Ke Profile</Text>
+                </Button>
             </View>
         );
     }

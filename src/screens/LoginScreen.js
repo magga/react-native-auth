@@ -5,7 +5,9 @@ import LoginFormNativebase from './../components/LoginFormNativebase';
 
 class LoginScreen extends Component {
 	_onButtonLoginPress() {
-		this.props.navigation.navigate('home');
+		this.props.navigation.navigate('home', {
+			kota: 'Bekasi'
+		});
 	}
 
     render() {

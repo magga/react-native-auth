@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
 import firebase from 'firebase';
-import { createSwitchNavigator } from 'react-navigation';
+import { createSwitchNavigator, createStackNavigator } from 'react-navigation';
 
 import LoginScreen from './src/screens/LoginScreen';
 import HomeScreen from './src/screens/HomeScreen';
+import ProfileScreen from './src/screens/ProfileScreen';
 
-const AppNavigator = createSwitchNavigator({
+const AppNavigator = createStackNavigator({
 	login: LoginScreen,
-	home: HomeScreen
+	home: HomeScreen,
+	profile: ProfileScreen
 });
 
 class App extends Component {
